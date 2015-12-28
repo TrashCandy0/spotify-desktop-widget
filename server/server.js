@@ -55,6 +55,13 @@
     socket.on('pause', function() {
       return spotify_socket != null ? spotify_socket.emit('pause') : void 0;
     });
+    socket.on('sync', function(data, cb) {
+      if (spotify_socket == null) return void 0;
+      spotify_socket.emit('sync', function(err, data) {
+        if (err) return cb(err);
+        return cb(data);
+      });
+    });
     socket.on('stop', function() {
       return spotify_socket != null ? spotify_socket.emit('stop') : void 0;
     });
@@ -69,6 +76,19 @@
     });
     socket.on('seek', function(amount) {
       return spotify_socket != null ? spotify_socket.emit('seek', amount) : void 0;
+    });
+    socket.on('shuffle', function() {
+      return spotify_socket != null ? spotify_socket.emit('shuffle') : void 0;
+    });
+    socket.on('repeat', function() {
+      return spotify_socket != null ? spotify_socket.emit('repeat') : void 0;
+    });
+    socket.on('getPlaylist', function(data, cb) {
+      if (spotify_socket == null) return void 0;
+      spotify_socket.emit('getPlaylist', function(err, data) {
+        if (err) return cb(err);
+        return cb(data);
+      });
     });
     socket.on('play', function(params) {
       if (/^spotify:track:[^:]+$/.test(params != null ? params.uri : void 0)) {
@@ -136,6 +156,50 @@
     });
     app.get('/prevTrack', function(req, res, next) {
       return spotify_socket.emit('prevTrack', function(err, data) {
+        if (data == null) {
+          data = {};
+        }
+        if (err) {
+          return res.status(500).send(err);
+        }
+        return res.send(data);
+      });
+    });
+    app.get('/shuffle', function(req, res, next) {
+      return spotify_socket.emit('shuffle', function(err, data) {
+        if (data == null) {
+          data = {};
+        }
+        if (err) {
+          return res.status(500).send(err);
+        }
+        return res.send(data);
+      });
+    });
+    app.get('/repeat', function(req, res, next) {
+      return spotify_socket.emit('repeat', function(err, data) {
+        if (data == null) {
+          data = {};
+        }
+        if (err) {
+          return res.status(500).send(err);
+        }
+        return res.send(data);
+      });
+    });
+    app.get('/getPlaylist', function(req, res, next) {
+      return spotify_socket.emit('getPlaylist', function(err, data) {
+        if (data == null) {
+          data = {};
+        }
+        if (err) {
+          return res.status(500).send(err);
+        }
+        return res.send(data);
+      });
+    });
+    app.get('/sync', function(req, res, next) {
+      return spotify_socket.emit('sync', function(err, data) {
         if (data == null) {
           data = {};
         }

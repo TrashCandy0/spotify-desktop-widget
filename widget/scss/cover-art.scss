@@ -1,0 +1,29 @@
+#coverArt {
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  height: $player-width / 2;
+  width: $player-width;
+  background-color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+
+#bgArt {
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  background-color: #333;
+  position: absolute;
+  min-height: 110%;
+  width: 110%;
+  left: -5%;
+  top: -5%;
+  z-index: -1;
+  -webkit-filter: blur(30px);
+  -moz-filter: blur(30px);
+  -o-filter: blur(30px);
+  filter: blur(30px);
+}

@@ -1,0 +1,84 @@
+.media-button {
+  width: 51px;
+  height: 51px;
+  border-radius: 99px;
+  border: 0.15rem solid #eee;
+  font-size: 1.2rem;
+  color: $black;
+  margin: 30px 12px;
+  transition: 150ms;
+  text-align: center;
+
+  .fa-forward {
+    margin-left: 5px;
+  }
+  .fa-backward {
+    margin-right: 2px;
+  }
+
+  &:hover {
+    background-color: $black;
+    color: white;
+    border-color: $black;
+  }
+
+  &.media-button-tiny {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+    .fa-play {
+      margin-top: 0.415rem;
+      margin-left: 0.25rem;
+    }
+  }
+  &.media-button-large {
+    width: 65px;
+    height: 65px;
+    font-size: 1.5rem;
+    .fa-play {
+      margin-left: 5px;
+    }
+    .fa-pause {
+      margin-left: 1px;
+    }
+  }
+}
+
+a.media-button {
+  display: inline-block;
+}
+
+.action-button-container {
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  width: 60px;
+  text-align: right;
+  &:first-child {
+    left: 7px;
+  }
+}
+
+.action-button {
+  i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 150ms;
+    padding-right: 15px;
+    &.unselected {
+      color: #eee;
+    }
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+.flip-button {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  span i {
+    color: white;
+  }
+}

@@ -1,0 +1,102 @@
+#trackList {
+  width: 100%;
+  max-height: 550px;
+  overflow-y: scroll;
+  .track {
+    padding: 13px;
+    width: 100%;
+    position: relative;
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+    .names {
+      vertical-align: middle;
+      display: inline-block;
+      line-height: 1.4;
+      .song {
+        color: #555;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .artist {
+        color: #bbb;
+        font-size: 0.8rem;
+      }
+    }
+    &.playing {
+      .names {
+        .song {
+          color: $black;
+        }
+        .artist {
+          color: #6E6E9C;
+        }
+      }
+      .duration {
+        color: #6E6E9C;
+      }
+      .playing-icon {
+        display: inline-block;
+      }
+    }
+    .play {
+      width: 40px;
+      margin-right: 10px;
+      text-align: center;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .media-button {
+      margin: 0;
+      vertical-align: middle;
+      display: none;
+      background: $black;
+      color: white;
+      transition: 0.5s;
+    }
+
+    .playing-icon {
+      display: none;
+      position: absolute;
+      right: 90px;
+      top: 22px;
+    }
+
+    .duration {
+      color: #bbb;
+      font-size: 0.8rem;
+      font-weight: 600;
+      position: absolute;
+      right: 35px;
+      top: 23px;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #eee;
+      .media-button {
+        display: inline-block;
+      }
+      .names {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(100,100,100,0.4);
+}

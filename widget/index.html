@@ -6,24 +6,55 @@
   <title>Spotify Desktop Widget</title>
   <link rel="stylesheet" href="css/app.css">
   <script type='application/javascript' src='http://localhost:3001/socket.io/socket.io.js'></script>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
   <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
-    <input type='button' class="button primary large" id="pause" value="Pause" />
-    <div class="wrap">
-      <input type="range" min="0" max="100" value="50" id="progress" buff="0" class="range" />
-    </div>
-    <h1 id="name"></h1>
-    <h2 id="artist"></h2>
-    <img id="coverArt" src="" />
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/what-input/what-input.js"></script>
-  <script src="bower_components/foundation-sites/dist/foundation.js"></script>
-  <script src="js/slider.js" type="application/javascript"></script>
-  <script src="index.js" type="application/javascript"></script>
+    <div id="bgArt"></div>
+    <div class="flip-container" id="flipper">
+     <div class="flipper">
+      <div class="player text-center front">
+        <span class="action-button flip-button" id="flip"><i class="fa fa-list unselected"></i></span>
+        <div id="coverArt"></div>
+        <div class="header-container">
+          <div class="action-button-container action-button">
+            <i class="fa fa-random" id="shuffle"></i>
+          </div>
+          <div class="title-container">
+            <h3 id="name"></h3>
+            <h5 id="artist"></h5>
+          </div>
+          <div class="action-button-container action-button">
+            <i class="fa fa-retweet unselected" id="repeat"></i>
+          </div>
+        </div>
+        <div class="time-wrap">
+          <span class="time" id="elapsed">0:00</span>
+          <div class="progress-wrap">
+            <input type="range" min="0" max="100" value="50" id="progress" buff="0" class="range" />
+          </div>
+          <span class="time" id="duration">0:00</span>
+        </div>
+        <button class="media-button" id="previous"><i class="fa fa-backward"></i></button>
+        <button class="media-button media-button-large" id="pause"><i class="fa fa-play"></i></button>
+        <button class="media-button" id="next"><i class="fa fa-forward"></i></button>
+      </div>
+  		<div class="player back">
+        <h5 class="title-padding" id="playlistName">Now Playing</h5>
+        <span class="action-button flip-button" id="close"><i class="fa fa-times"></i></span>
+        <div id="trackList">
+        </div>
+  		</div>
+     </div>
+   </div>
+   <script src="bower_components/jquery/dist/jquery.js"></script>
+   <!-- <script src="bower_components/what-input/what-input.js"></script> -->
+   <script src="bower_components/foundation-sites/dist/foundation.js"></script>
+   <script src="index.js" type="application/javascript"></script>
 
-  <script>
-    $(document).foundation();
-  </script>
+   <script>
+     $(document).foundation();
+   </script>
   </body>
 </html>

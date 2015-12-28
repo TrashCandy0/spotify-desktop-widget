@@ -1,0 +1,66 @@
+$player-width: 31.250em;
+
+body {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.player {
+  width: $player-width;
+  background-color: #fff;
+  border: 1px;
+  border-radius: 30px;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 5px 40px #333;
+  -moz-box-shadow: 5px 5px 40px #333;
+  box-shadow: 5px 5px 40px #333;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rem;
+  position: relative;
+}
+
+
+.progress-wrap {
+  width: $player-width - 9;
+  display:inline-block;
+  position: relative;
+  top: -6px;
+}
+
+.time-wrap {
+  margin-top: 30px;
+  span {
+    font-size: 0.9rem;
+    color: #ccc;
+    &:first-child {
+      margin-right: 15px;
+    }
+    &:last-child {
+      margin-left: 15px;
+    }
+  }
+}
+
+.title-container {
+  display: inline-block;
+  width: $player-width - 9;
+  padding: 10px;
+}
+
+.header-container {
+  position: relative;
+}
+
+
+.title-padding {
+  padding-top: 10px;
+  padding-left: 25px;
+}
+
+.back {
+  min-height: 550px;
+}
